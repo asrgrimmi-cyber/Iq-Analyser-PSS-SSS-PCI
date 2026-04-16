@@ -1,0 +1,44 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# C++ build artifacts
+build/
+bin/
+out/
+CMakeFiles/
+CMakeCache.txt
+*.obj
+*.exe
+*.pdb
+*.ilk
+*.lib
+*.a
+*.so
+*.dylib
+
+# Data files (usually excluded, but can be included if desired)
+# For now, we'll keep them excluded for a clean initial push
+# *.bin
+
+# Generated plots
+# static/*.png
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env
+
+# Antigravity artifacts
+.gemini/
+.antigravity/
+brain/
+implementation_plan.md
+task.md
+walkthrough.md

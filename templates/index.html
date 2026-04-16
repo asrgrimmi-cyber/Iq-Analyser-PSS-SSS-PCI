@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IQ Analyzer — LTE Cell Detection</title>
+    <meta name="description" content="Upload a .bin IQ file to detect PSS, SSS, PCI and visualize LTE signal analysis with channel estimation and equalization.">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>">
+</head>
+<body>
+    <div class="app-layout">
+
+        <!-- ═══ NAVBAR ═══ -->
+        <nav class="navbar" id="navbar">
+            <a class="navbar-brand" href="/">
+                <div class="navbar-logo">📡</div>
+                <div>
+                    <div class="navbar-title">IQ Analyzer</div>
+                    <div class="navbar-subtitle">LTE Cell Detection Engine</div>
+                </div>
+            </a>
+            <div class="navbar-status">
+                <span class="status-dot"></span>
+                <span id="file-name">Ready</span>
+            </div>
+        </nav>
+
+        <!-- ═══ MAIN CONTENT ═══ -->
+        <main class="main-content">
+
+            <!-- ── UPLOAD STATE ── -->
+            <section class="upload-section" id="upload-section">
+                <div class="upload-hero-text">
+                    <h2>Analyze Your IQ Data</h2>
+                    <p>Upload a raw IQ binary file to detect PSS, SSS, compute PCI, and perform full channel estimation & equalization.</p>
+                </div>
+
+                <div class="upload-zone" id="upload-zone">
+                    <div class="upload-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                    </div>
+                    <div class="upload-text">
+                        <h3>Drop your <span class="accent">.bin</span> IQ file here</h3>
+                        <p>or <span class="accent">click to browse</span></p>
+                        <p class="file-types">Supports: complex64 IQ binary files</p>
+                    </div>
+                    <input type="file" class="upload-input" id="file-input" accept=".bin">
+                </div>
+            </section>
+
+            <!-- ── PROCESSING STATE ── -->
+            <section class="processing-section" id="processing-section">
+                <div class="equalizer">
+                    <div class="eq-bar"></div>
+                    <div class="eq-bar"></div>
+                    <div class="eq-bar"></div>
+                    <div class="eq-bar"></div>
+                    <div class="eq-bar"></div>
+                    <div class="eq-bar"></div>
+                    <div class="eq-bar"></div>
+                    <div class="eq-bar"></div>
+                </div>
+                <div class="processing-text">
+                    <h3>Analyzing IQ Data</h3>
+                    <p>Running PSS correlation, SSS detection, channel estimation...</p>
+                    <div class="progress-container" id="progress-container">
+                        <div class="progress-bar" id="progress-bar"></div>
+                    </div>
+                    <p class="status-msg" id="status-msg">Preparing...</p>
+                </div>
+            </section>
+
+            <!-- ── RESULTS STATE ── -->
+            <section class="results-section" id="results-section">
+
+                <!-- Parameters -->
+                <div class="section-header">
+                    <h2>🟢 Detected Parameters</h2>
+                    <button class="new-analysis-btn" id="new-analysis-btn">+ New Analysis</button>
+                </div>
+                <div class="params-grid" id="params-grid">
+                    <!-- Dynamically populated -->
+                </div>
+
+                <!-- Plots -->
+                <div class="section-header">
+                    <h2>📊 Analysis Plots</h2>
+                    <span class="badge">Click to enlarge</span>
+                </div>
+                <div class="plots-grid" id="plots-grid">
+                    <!-- Dynamically populated -->
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- ═══ FOOTER ═══ -->
+        <footer class="footer">
+            IQ Analyzer &mdash; LTE PSS / SSS / PCI Detection Engine &bull; Built with Python + Flask
+        </footer>
+
+    </div>
+
+    <!-- ═══ LIGHTBOX MODAL ═══ -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightbox-close">&times;</button>
+        <img class="lightbox-content" id="lightbox-img" src="" alt="">
+        <div class="lightbox-title" id="lightbox-title"></div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
